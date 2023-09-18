@@ -1,5 +1,0 @@
-
-void ClickCount::createGui()
-{
-
-}

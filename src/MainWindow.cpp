@@ -1,5 +1,5 @@
 #include "include/MainWindow.h"
-#include "include/ClickCount.h"
+#include "include/PenColor.h"
 
 #include <QPushButton>
 #include <QHBoxLayout>
@@ -12,17 +12,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete Click;
+    delete PenCol;
 }
 
 void MainWindow::createGui()
 {
-    Click = new ClickCount();
+    PenCol = new PenColor(this);
     auto m_layout = new QHBoxLayout();
-        m_layout->addWidget(Click);
-        m_layout->setStretch(0,1);
+        m_layout->addWidget(PenCol);
     setLayout(m_layout);
-    Click->setBaseSize(150, 150);
-    Click->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 }
+
+
 

@@ -2,7 +2,7 @@
 
 #include <QMainWindow>
 
-class ClickCount;
+class PenColor;
 
 class MainWindow : public QWidget
 {
@@ -12,9 +12,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
 private:
     void createGui();
 
 private:
-    ClickCount *Click;
+    PenColor *PenCol;
 };

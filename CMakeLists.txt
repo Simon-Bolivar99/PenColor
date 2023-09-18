@@ -18,10 +18,8 @@ set(PROJECT_SOURCES
         src/main.cpp
         src/MainWindow.cpp
         src/PenColor.cpp
-        src/ClickCount.cpp
         include/MainWindow.h
         include/PenColor.h
-        include/ClickCount.h
         libs/ColorToolButton.cpp
         libs/ColorToolButton.h
 )

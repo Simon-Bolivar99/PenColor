@@ -129,7 +129,6 @@ void ColorToolButton::createIcon(QColor color, const QSize& sz)
            icon.addPixmap(pixmap, QIcon::Mode::Active);
            icon.addPixmap(pixmap, QIcon::Mode::Selected);
            icon.addPixmap(pixmap, QIcon::Mode::Normal);
-           icon.addPixmap(pixmap, QIcon::Mode::Disabled); // ?
 
        setIcon(icon);
        setIconSize({static_cast<int>(sz.width()*0.4),
