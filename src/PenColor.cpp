@@ -5,6 +5,9 @@
 #include <QPen>
 #include <QPainter>
 #include <QAction>
+#include <QPushButton>
+
+#include <QDebug>
 
 PenColor::PenColor(QWidget* parent) : LineBox(new QComboBox(this)), ThickBox(new QSpinBox(this)),
     ColorButton(new ColorToolButton(this)), Layout(new QHBoxLayout(this))
@@ -18,20 +21,21 @@ QColor PenColor::getColor()
     return ColorButton->getColor();
 }
 
-void PenColor::getLine()
+int PenColor::getLine()
 {
-
+    return LineBox->currentIndex();
 }
 
-void PenColor::getThick()
+int PenColor::getThick()
 {
-
+    return ThickBox->value();
 }
 
 void PenColor::initTools()
 {
-    ThickBox->setValue(5);
-    createLineBoxActions();
+    ThickBox->setValue(2);
+    LineBox->setIconSize(QSize(60,20));
+        createLineBoxActions();
 }
 
 void PenColor::createGui()
@@ -45,27 +49,30 @@ void PenColor::createGui()
     ThickBox->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         Layout->addWidget(ThickBox);
     Layout->setSizeConstraint(QLayout::SetFixedSize);
+
+//   auto Button = new QPushButton("Ok");
+//    Layout->addWidget(Button);
+//    connect(Button, &QPushButton::clicked, this, [this](){
+//          qDebug()<<getLine();
+//          qDebug()<<getThick();
+//          qDebug()<<getColor();
+//    });
+
     setLayout(Layout);
-}
-
-void PenColor::connectSignals()
-{
-
 }
 
 void PenColor::createLineBoxActions()
 {
-    LineBox->addItem("");
-    LineBox->addItem("");
-    QPen pen(Qt::black, 10);
-    QPainter painter(this);
-        //painter.begin(this);
-        painter.setPen(QPen(Qt::black, 10));
-        painter.drawLine(0,0,100,100);
-
-
-
-
-        //Action->setIcon(QIcon(pix));
+    for (int i = 1; i < 6;i++){
+        QPen pen(Qt::black, 3, Qt::PenStyle(i));
+        QPixmap pix(60,20);
+        pix.fill(QColor(QRgb(0xefefef)));
+        QPainter painter;
+            painter.begin(&pix);
+            painter.setPen(pen);
+            painter.drawLine(0,LineBox->height()*0.35,60,LineBox->height()*0.35);
+            painter.end();
+        LineBox->addItem(QIcon(pix),"");
+    }
 
 }

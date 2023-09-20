@@ -2,13 +2,16 @@
 
 #include "libs/ColorToolButton.h"
 
+#include <QList>
 #include <QWidget>
+
 
 class QComboBox;
 class QSpinBox;
 class ColorToolButton;
 class QHBoxLayout;
 class QPen;
+class QPushButton;
 
 
 
@@ -19,13 +22,12 @@ public:
     ~PenColor() = default;
 
     QColor getColor();
-    void getLine();
-    void getThick();
+    int getLine();
+    int getThick();
 
 private:
     void initTools();
     void createGui();
-    void connectSignals();
     void createLineBoxActions();
 
 
@@ -36,6 +38,4 @@ private:
     ColorToolButton *ColorButton;
     QHBoxLayout     *Layout;
 
-    QAction *Action;
-    QAction *Action1;
 };
