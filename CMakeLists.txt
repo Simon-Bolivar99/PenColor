@@ -18,8 +18,10 @@ set(PROJECT_SOURCES
         src/main.cpp
         src/MainWindow.cpp
         src/PenColor.cpp
+        src/CustomDelegate.cpp
         include/MainWindow.h
         include/PenColor.h
+        include/CustomDelegate.h
         libs/ColorToolButton.cpp
         libs/ColorToolButton.h
 )

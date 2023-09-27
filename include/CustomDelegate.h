@@ -1,0 +1,4 @@
+#ifndef CUSTOMDELEGATE_H
+#define CUSTOMDELEGATE_H
+
+#endif // CUSTOMDELEGATE_H
