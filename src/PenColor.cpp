@@ -1,4 +1,6 @@
 #include "include/PenColor.h"
+#include "include/CustomDelegate.h"
+
 #include <QComboBox>
 #include <QSpinBox>
 #include <QHBoxLayout>
@@ -35,7 +37,8 @@ void PenColor::initTools()
 {
     ThickBox->setValue(2);
     LineBox->setIconSize(QSize(60,20));
-        createLineBoxActions();
+        //createLineBoxActions();
+    LineBox->setItemDelegate(new CustomDelegate);
 }
 
 void PenColor::createGui()
