@@ -1,7 +1,7 @@
 #include "include/ComboLineBox.h"
 #include <QStylePainter>
 
-ComboLineBox::ComboLineBox(QWidget *parent): QComboBox(parent)
+ComboLineBox::ComboLineBox(QWidget *parent)
 {
 
 }
