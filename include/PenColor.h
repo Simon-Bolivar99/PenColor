@@ -6,13 +6,13 @@
 #include <QWidget>
 
 
-class QComboBox;
+class ComboLineBox;
 class QSpinBox;
 class ColorToolButton;
 class QHBoxLayout;
 class QPen;
 class QPushButton;
-
+class CustomDelegate;
 
 
 class PenColor : public QWidget{
@@ -28,14 +28,16 @@ public:
 private:
     void initTools();
     void createGui();
-    void createLineBoxActions();
+    void createItems();
+    void paintLine();
 
 
 private:
 
-    QComboBox       *LineBox;
+    ComboLineBox    *LineBox;
     QSpinBox        *ThickBox;
     ColorToolButton *ColorButton;
     QHBoxLayout     *Layout;
+    CustomDelegate  *Delegate;
 
 };

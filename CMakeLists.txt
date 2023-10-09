@@ -19,7 +19,9 @@ set(PROJECT_SOURCES
         src/MainWindow.cpp
         src/PenColor.cpp
         src/CustomDelegate.cpp
+        src/ComboLineBox.cpp
         include/MainWindow.h
+        include/ComboLineBox.h
         include/PenColor.h
         include/CustomDelegate.h
         libs/ColorToolButton.cpp

@@ -1,5 +1,6 @@
 #include "include/PenColor.h"
 #include "include/CustomDelegate.h"
+#include "include/ComboLineBox.h"
 
 #include <QComboBox>
 #include <QSpinBox>
@@ -11,8 +12,8 @@
 
 #include <QDebug>
 
-PenColor::PenColor(QWidget* parent) : LineBox(new QComboBox(this)), ThickBox(new QSpinBox(this)),
-    ColorButton(new ColorToolButton(this)), Layout(new QHBoxLayout(this))
+PenColor::PenColor(QWidget* parent) : LineBox(new ComboLineBox(this)), ThickBox(new QSpinBox(this)),
+    ColorButton(new ColorToolButton(this)), Layout(new QHBoxLayout(this)), Delegate(new CustomDelegate(this))
 {
     initTools();
     createGui();
@@ -36,9 +37,8 @@ int PenColor::getThick()
 void PenColor::initTools()
 {
     ThickBox->setValue(2);
-    LineBox->setIconSize(QSize(60,20));
-        //createLineBoxActions();
-    LineBox->setItemDelegate(new CustomDelegate);
+    createItems();
+    LineBox->setItemDelegate(Delegate);
 }
 
 void PenColor::createGui()
@@ -64,18 +64,9 @@ void PenColor::createGui()
     setLayout(Layout);
 }
 
-void PenColor::createLineBoxActions()
+void PenColor::createItems()
 {
-    for (int i = 1; i < 6;i++){
-        QPen pen(Qt::black, 3, Qt::PenStyle(i));
-        QPixmap pix(60,20);
-        pix.fill(QColor(QRgb(0xefefef)));
-        QPainter painter;
-            painter.begin(&pix);
-            painter.setPen(pen);
-            painter.drawLine(0,LineBox->height()*0.35,60,LineBox->height()*0.35);
-            painter.end();
-        LineBox->addItem(QIcon(pix),"");
-    }
-
+    for (int i = 1; i < 6;i++)
+        LineBox->addItem("",i);
 }
+
