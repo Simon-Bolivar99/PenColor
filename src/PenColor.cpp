@@ -43,23 +43,14 @@ void PenColor::initTools()
 
 void PenColor::createGui()
 {
-     //LineBox->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         LineBox->setMinimumSize(QSize(100,25));
         Layout->addWidget(LineBox);
-    //ThickBox->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         Layout->addWidget(ThickBox);
-    //ColorButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         ColorButton->setMinimumSize(QSize(40,25));
         Layout->addWidget(ColorButton);
     Layout->setSizeConstraint(QLayout::SetFixedSize);
 
-//   auto Button = new QPushButton("Ok");
-//    Layout->addWidget(Button);
-//    connect(Button, &QPushButton::clicked, this, [this](){
-//          qDebug()<<getLine();
-//          qDebug()<<getThick();
-//          qDebug()<<getColor();
-//    });
+
 
     setLayout(Layout);
 }
