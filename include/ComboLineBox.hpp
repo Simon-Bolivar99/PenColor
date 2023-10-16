@@ -10,4 +10,9 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
+
+private:
+    void resizeEvent(QResizeEvent *e);
+
+    QSize sz;
 };

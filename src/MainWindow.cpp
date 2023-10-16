@@ -1,5 +1,5 @@
-#include "include/MainWindow.h"
-#include "include/PenColor.h"
+#include "include/MainWindow.hpp"
+#include "include/PenStyleEdit.hpp"
 
 #include <QPushButton>
 #include <QHBoxLayout>
@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::createGui()
 {
-    PenCol = new PenColor(this);
+    PenCol = new PenStyleEdit(this);
     auto m_layout = new QHBoxLayout();
         m_layout->addWidget(PenCol);
     setLayout(m_layout);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libs/ColorToolButton.h"
+#include "libs/ColorToolButton.hpp"
 
 #include <QList>
 #include <QWidget>
@@ -12,23 +12,23 @@ class ColorToolButton;
 class QHBoxLayout;
 class QPen;
 class QPushButton;
-class CustomDelegate;
+class PenStyleDelegate;
 
 
-class PenColor : public QWidget{
+class PenStyleEdit : public QWidget{
     Q_OBJECT
 public:
-    PenColor(QWidget *parent);
-    ~PenColor() = default;
+    PenStyleEdit(QWidget *parent);
+    ~PenStyleEdit() = default;
 
     QColor getColor();
-    int getLine();
-    int getThick();
+    int getPenStyle();
+    Qt::PenStyle getPenThick();
 
 private:
     void initTools();
     void createGui();
-    void createItems();
+    void initGui();
     void paintLine();
 
 
@@ -38,6 +38,6 @@ private:
     QSpinBox        *ThickBox;
     ColorToolButton *ColorButton;
     QHBoxLayout     *Layout;
-    CustomDelegate  *Delegate;
+    PenStyleDelegate  *StyleDelegate;
 
 };

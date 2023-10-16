@@ -2,7 +2,7 @@
 
 #include <QMainWindow>
 
-class PenColor;
+class PenStyleEdit;
 
 class MainWindow : public QWidget
 {
@@ -18,5 +18,5 @@ private:
     void createGui();
 
 private:
-    PenColor *PenCol;
+    PenStyleEdit *PenCol;
 };

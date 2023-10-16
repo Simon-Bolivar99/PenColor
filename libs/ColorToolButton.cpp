@@ -1,4 +1,4 @@
-#include "libs/ColorToolButton.h"
+#include "libs/ColorToolButton.hpp"
 
 #include <QMenu>
 #include <QToolButton>
@@ -10,7 +10,8 @@
 #include <QDebug>
 
 ColorToolButton::ColorToolButton(QWidget *parent)
-    :  ColorDialog (new QColorDialog(this)), Menu(new QMenu(this)), numColors (ColorDialog->customCount()),
+    : QToolButton(parent),
+      ColorDialog (new QColorDialog(this)), Menu(new QMenu(this)), numColors (ColorDialog->customCount()),
       IconColor(ColorDialog->customColor(0)),  sz (size())
 {
     createActions();
@@ -26,9 +27,12 @@ ColorToolButton::~ColorToolButton()
 
 void ColorToolButton::createGui()
 {
+    createMenu();
     createIcon(IconColor, {56, 56});
     setPopupMode(QToolButton::DelayedPopup);
-    createMenu();
+    setMinimumSize(QSize(40,25));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    setStyleSheet("QToolButton { background-color: white }");
 }
 
 void ColorToolButton::connectSignals()

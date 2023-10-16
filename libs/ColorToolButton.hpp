@@ -30,7 +30,7 @@ private:
 
     void deleteActions();
 
-    void resizeEvent(QResizeEvent *);
+    void resizeEvent(QResizeEvent *e);
 
 private:
     struct action_color_t{

@@ -17,15 +17,17 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 set(PROJECT_SOURCES
         src/main.cpp
         src/MainWindow.cpp
-        src/PenColor.cpp
-        src/CustomDelegate.cpp
+        src/PenStyleEdit.cpp
+        src/PenStyleDelegate.cpp
         src/ComboLineBox.cpp
-        include/MainWindow.h
-        include/ComboLineBox.h
-        include/PenColor.h
-        include/CustomDelegate.h
+
+        include/MainWindow.hpp
+        include/ComboLineBox.hpp
+        include/PenStyleEdit.hpp
+        include/PenStyleDelegate.hpp
+
         libs/ColorToolButton.cpp
-        libs/ColorToolButton.h
+        libs/ColorToolButton.hpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
