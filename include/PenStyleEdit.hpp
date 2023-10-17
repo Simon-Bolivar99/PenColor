@@ -21,7 +21,7 @@ public:
     PenStyleEdit(QWidget *parent);
     ~PenStyleEdit() = default;
 
-    QColor getColor();
+    QColor getPenColor();
     int getPenStyle();
     Qt::PenStyle getPenThick();
 

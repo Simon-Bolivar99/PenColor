@@ -16,7 +16,8 @@ void ComboLineBox::paintEvent(QPaintEvent *event)
     painter.drawComplexControl(QStyle::CC_ComboBox, opt);
 
     painter.setPen(QPen(Qt::black,3,Qt::PenStyle(currentIndex()+1)));
-    painter.drawLine(7, 13, sz.rwidth()-30, 13);
+    if( sz.rwidth()-37 > 0)
+        painter.drawLine(7, 13, sz.rwidth()-30, 13);
     painter.end();
 }
 

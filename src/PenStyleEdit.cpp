@@ -19,7 +19,7 @@ PenStyleEdit::PenStyleEdit(QWidget* parent) : LineBox(new ComboLineBox(this)), T
     initGui();
 }
 
-QColor PenStyleEdit::getColor()
+QColor PenStyleEdit::getPenColor()
 {
     return ColorButton->getColor();
 }
