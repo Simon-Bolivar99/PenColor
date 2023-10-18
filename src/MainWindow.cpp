@@ -18,7 +18,6 @@ MainWindow::~MainWindow()
 void MainWindow::createGui()
 {
     PenCol = new PenStyleEdit(this);
-    PenCol->setColorButtonSize(QSize(50,30));
     auto m_layout = new QHBoxLayout();
         m_layout->addWidget(PenCol);
     setLayout(m_layout);
