@@ -34,6 +34,12 @@ Qt::PenStyle PenStyleEdit::getPenThick()
     return Qt::PenStyle(ThickBox->value());
 }
 
+void PenStyleEdit::setColorButtonSize(QSize sz)
+{
+    ColorButton->setMaximumSize(sz);
+    ColorButton->setMinimumSize(sz);
+}
+
 
 
 void PenStyleEdit::createGui()

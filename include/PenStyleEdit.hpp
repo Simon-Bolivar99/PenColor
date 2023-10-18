@@ -25,6 +25,8 @@ public:
     int getPenStyle();
     Qt::PenStyle getPenThick();
 
+    void setColorButtonSize(QSize sz);
+
 private:
     void initTools();
     void createGui();
