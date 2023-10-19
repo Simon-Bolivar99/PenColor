@@ -25,13 +25,15 @@ ColorToolButton::~ColorToolButton()
     deleteActions();
 }
 
+
+
+
 void ColorToolButton::createGui()
 {
     createMenu();
     createIcon(IconColor, {56, 56});
     setPopupMode(QToolButton::DelayedPopup);
-    setMinimumSize(QSize(40,25));
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    //setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setStyleSheet("QToolButton { background-color: white }");
 }
 

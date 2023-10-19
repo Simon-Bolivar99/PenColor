@@ -6,6 +6,11 @@ ComboLineBox::ComboLineBox(QWidget *parent)
     sz = size();
 }
 
+QSize ComboLineBox::minimumSizeHint() const
+{
+    return QSize(100,QComboBox::sizeHint().rheight());
+}
+
 void ComboLineBox::paintEvent(QPaintEvent *event)
 {
 
@@ -17,7 +22,7 @@ void ComboLineBox::paintEvent(QPaintEvent *event)
 
     painter.setPen(QPen(Qt::black,3,Qt::PenStyle(currentIndex()+1)));
     if( sz.rwidth()-37 > 0)
-        painter.drawLine(7, 13, sz.rwidth()-30, 13);
+        painter.drawLine(7, rect().center().ry(), sz.rwidth()-30, rect().center().ry());
     painter.end();
 }
 

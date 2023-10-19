@@ -8,11 +8,14 @@ public:
     ComboLineBox(QWidget *parent = nullptr);
     ~ComboLineBox() = default;
 
+    QSize minimumSizeHint() const override;
 protected:
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
 
 private:
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) override;
 
     QSize sz;
+
+
 };

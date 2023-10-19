@@ -24,7 +24,7 @@ void PenStyleDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     painter->setPen(QPen(m_pen_color, m_pen_width, Qt::PenStyle(data)));
         QStyledItemDelegate::paint(painter,myOption,index);
 
-    painter->drawLine(myOption.rect.x()+6,myOption.rect.y()+9,myOption.rect.size().rwidth()-7, myOption.rect.y()+9);
+    painter->drawLine(myOption.rect.x()+6,myOption.rect.center().ry(),myOption.rect.size().rwidth()-7, myOption.rect.center().ry());
 
 }
 

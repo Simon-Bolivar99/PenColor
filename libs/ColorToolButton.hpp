@@ -15,6 +15,7 @@ public:
     ColorToolButton(QWidget *parent = nullptr);
     ~ColorToolButton();
 
+
 public:
     QColor getColor() {return IconColor;}
 
@@ -30,7 +31,7 @@ private:
 
     void deleteActions();
 
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) override;
 
 private:
     struct action_color_t{

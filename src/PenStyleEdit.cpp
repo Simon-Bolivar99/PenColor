@@ -12,11 +12,39 @@
 
 #include <QDebug>
 
-PenStyleEdit::PenStyleEdit(QWidget* parent) : LineBox(new ComboLineBox(this)), ThickBox(new QSpinBox(this)),
-    ColorButton(new ColorToolButton(this))
+PenStyleEdit::PenStyleEdit(QWidget* parent)
 {
     createGui();
     initGui();
+}
+
+void PenStyleEdit::createGui()
+{
+    LineBox = new ComboLineBox;
+    ThickBox = new QSpinBox;
+    ColorButton = new ColorToolButton;
+        ColorButton->setMinimumSize(QSize(ThickBox->size())); // ?????
+
+    auto Layout = new QHBoxLayout(this);
+        Layout->addWidget(LineBox,1);
+        Layout->addWidget(ThickBox,0);
+        Layout->addWidget(ColorButton,0);
+}
+
+void PenStyleEdit::initGui()
+{
+    ThickBox->setMinimum(1);
+    ThickBox->setMaximum(20);
+
+    LineBox->setItemDelegate(new PenStyleDelegate);
+        LineBox->addItem("", static_cast<int>(Qt::SolidLine));
+        LineBox->addItem("", static_cast<int>(Qt::DashLine));
+        LineBox->addItem("", static_cast<int>(Qt::DotLine));
+        LineBox->addItem("", static_cast<int>(Qt::DashDotLine));
+        LineBox->addItem("", static_cast<int>(Qt::DashDotDotLine));
+
+    qDebug()<<ColorButton->baseSize();
+
 }
 
 QColor PenStyleEdit::getPenColor()
@@ -33,35 +61,3 @@ Qt::PenStyle PenStyleEdit::getPenThick()
 {
     return Qt::PenStyle(ThickBox->value());
 }
-
-
-
-void PenStyleEdit::createGui()
-{
-    auto Layout = new QHBoxLayout(this);
-        Layout->addWidget(LineBox);
-        Layout->addWidget(ThickBox);
-        Layout->addWidget(ColorButton);
-
-        Layout->setStretch(0, 1);
-        //Layout->setStretch(1, 1);
-        //Layout->setStretch(2, 1);
-
-
-    setLayout(Layout);
-}
-
-void PenStyleEdit::initGui()
-{
-    ThickBox->setMinimum(1);
-    ThickBox->setMaximum(20);
-
-    LineBox->setItemDelegate(new PenStyleDelegate);
-        LineBox->addItem("", static_cast<int>(Qt::SolidLine));
-        LineBox->addItem("", static_cast<int>(Qt::DashLine));
-        LineBox->addItem("", static_cast<int>(Qt::DotLine));
-        LineBox->addItem("", static_cast<int>(Qt::DashDotLine));
-        LineBox->addItem("", static_cast<int>(Qt::DashDotDotLine));
-
-}
-
