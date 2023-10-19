@@ -23,7 +23,7 @@ void PenStyleEdit::createGui()
     LineBox = new ComboLineBox;
     ThickBox = new QSpinBox;
     ColorButton = new ColorToolButton;
-        ColorButton->setMinimumSize(QSize(ThickBox->size())); // ?????
+        ColorButton->setMinimumSize(QSize(ThickBox->sizeHint().rheight(),ThickBox->sizeHint().rheight()));
 
     auto Layout = new QHBoxLayout(this);
         Layout->addWidget(LineBox,1);
@@ -43,7 +43,7 @@ void PenStyleEdit::initGui()
         LineBox->addItem("", static_cast<int>(Qt::DashDotLine));
         LineBox->addItem("", static_cast<int>(Qt::DashDotDotLine));
 
-    qDebug()<<ColorButton->baseSize();
+    qDebug()<<ThickBox->sizeHint();
 
 }
 

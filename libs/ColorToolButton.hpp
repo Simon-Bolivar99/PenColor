@@ -15,7 +15,6 @@ public:
     ColorToolButton(QWidget *parent = nullptr);
     ~ColorToolButton();
 
-
 public:
     QColor getColor() {return IconColor;}
 

@@ -2,6 +2,7 @@
 
 #include <QMenu>
 #include <QToolButton>
+#include <QComboBox>
 #include <QColorDialog>
 #include <QString>
 #include <QList>
@@ -26,14 +27,12 @@ ColorToolButton::~ColorToolButton()
 }
 
 
-
-
 void ColorToolButton::createGui()
 {
     createMenu();
     createIcon(IconColor, {56, 56});
     setPopupMode(QToolButton::DelayedPopup);
-    //setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
     setStyleSheet("QToolButton { background-color: white }");
 }
 
